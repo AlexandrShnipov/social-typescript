@@ -1,0 +1,14 @@
+.navListItem{
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.navListLink{
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.navListLink.active{
+    color: gold;
+}

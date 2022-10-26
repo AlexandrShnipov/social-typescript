@@ -1,0 +1,37 @@
+
+.paginationWrap {
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.pageNumber {
+    border: 1px solid gray;
+    width: 2.8rem;
+    height: 2.8rem;
+    display: grid;
+    place-content: center;
+}
+
+.pageNumber.selectedPage {
+    font-weight: bold;
+    border-color: black;
+    background: ivory;
+}
+
+.buttonPagination {
+    width: 2.8rem;
+    height: 2.8rem;
+    border: transparent;
+    background: none;
+    display: grid;
+    place-content: center;
+    transition: all .5s linear;
+}
+
+.buttonPagination:hover{
+    border: 1px solid gray;
+}
+
+.buttonPagination:active{
+    background: ivory;
+}

@@ -1,0 +1,44 @@
+.header {
+    grid-area: header;
+    background-color: #f1c4a6;
+    display: flex;
+    padding: .4rem;
+    align-items: center;
+
+}
+
+.headerLogoImg{
+    width: 2.5rem;
+}
+
+.headerWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.loginBlock{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+}
+
+.setLoginLink{
+    padding: .5rem 1rem;
+    width: fit-content;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: rgba(63, 139, 0, .41);
+    color: black;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    transition: all .5s;
+}
+
+.setLoginLink:hover{
+    background-color: rgba(63, 139, 0, .2);
+}
+

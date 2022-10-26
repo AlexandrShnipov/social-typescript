@@ -1,0 +1,31 @@
+.contentPosts{
+    padding-left: 1rem;
+    padding-right: 10%;
+    padding-bottom: 1rem;
+}
+
+.contentPostsTitle{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contentPostsPostNewText,
+.contentPostsPostNewButton{
+    display: block;
+}
+
+.contentPostsPostNewText{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.contentPostsPostNew{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contentPostsPostNew textarea{
+    height: 5rem;
+}

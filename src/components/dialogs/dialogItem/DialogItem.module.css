@@ -1,0 +1,26 @@
+.dialogUser {
+    margin-right: 2rem;
+}
+
+.dialogUserPhoto {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.dialogUserName {
+    transition: color .5s;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    color: darkblue;
+}
+
+.dialogUserName:hover {
+    color: brown;
+}
+
+.active {
+    color: #ff0062;
+}

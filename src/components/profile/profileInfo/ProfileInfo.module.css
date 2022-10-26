@@ -1,0 +1,125 @@
+.contentImgWrap {
+    width: 100%;
+    min-height: 29rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.contentImg {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+}
+
+.contentUser {
+    display: grid;
+    grid-template-columns: max-content auto;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.statusBlockImgWrap {
+    max-width: 10rem;
+    width: 100%;
+    height: 10rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.statusBlockImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+input[type=file] {
+    width: 1px;
+    height: 1px;
+    font-size: 1px;
+}
+
+.labelForSetPhoto {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: .5;
+    transition: all .5s linear;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    background: white;
+}
+
+label:hover {
+    opacity: .9;
+}
+
+.formSummaryError {
+    border: red 1px solid;
+    padding: .4rem;
+    color: salmon;
+}
+
+strong {
+    display: inline-block;
+    width: auto;
+}
+
+.contentUserDescription {
+    flex-basis: 30%;
+}
+
+.contentUserDescriptionButton {
+    padding: .5rem;
+    width: 5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: rgba(63, 139, 0, .41);
+    transition: all .5s;
+}
+
+.contentUserDescriptionButton:hover {
+    background-color: rgba(63, 139, 0, .2);
+}
+
+.contact strong {
+    width: 100%;
+}
+
+.contentUserDescription,
+.contentUserContactsTitle {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.contentUserDescription p:nth-child(3) label {
+    display: flex;
+    cursor: pointer;
+}
+
+.contentUserContact {
+    padding-left: .5rem;
+    font-style: italic;
+    display: flex;
+}
+
+.status {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    word-break: break-word;
+}
+
+.changeStatus {
+    width: 100%;
+}
+

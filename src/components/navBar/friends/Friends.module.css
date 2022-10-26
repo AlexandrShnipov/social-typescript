@@ -1,0 +1,14 @@
+.linkToFriends{
+    padding-bottom: .5rem;
+    font-size: 2rem;
+}
+
+.navListItemFriends{
+    padding-top: 1rem;
+    display: flex;
+    font-size: 1rem;
+   }
+
+a.active{
+    color: gold;
+}

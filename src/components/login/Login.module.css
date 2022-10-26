@@ -1,0 +1,17 @@
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 50%;
+}
+
+.formSummaryError {
+    border: red 1px solid;
+    padding: .4rem;
+    color: salmon;
+}
+
+.labelForRememberMe{
+    cursor: pointer;
+    display: flex;
+}

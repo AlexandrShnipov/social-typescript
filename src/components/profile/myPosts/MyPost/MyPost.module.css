@@ -1,0 +1,29 @@
+.post {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.post:not(:last-child) {
+    margin-bottom: .5rem;
+}
+
+.post + .post {
+    padding-top: .5rem;
+    border-top: 1px solid saddlebrown;
+}
+
+.postText {
+    flex-grow: 1;
+}
+
+.postImg {
+    max-width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.postLike {
+    align-self: flex-end;
+}

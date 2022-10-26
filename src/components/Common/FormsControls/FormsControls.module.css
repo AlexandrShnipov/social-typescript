@@ -1,0 +1,19 @@
+.formControl {
+    display: flex;
+    flex-direction: column;
+}
+
+.formControl.error input,
+.formControl.error textarea {
+    border: 2px solid red;
+}
+
+.formControl.error span {
+    color: red;
+}
+
+
+.formControl input,
+.formControl textarea {
+    padding: .2rem;
+}

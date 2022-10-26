@@ -1,0 +1,46 @@
+.nav {
+    color: white;
+    grid-area: nav;
+    background-color: burlywood;
+}
+
+.nav a{
+    display: inline-block;
+    width: 100%;
+    color: inherit;
+    transition: color .5s;
+}
+
+.nav a:hover{
+    color: brown;
+}
+
+a.active{
+    color: gold;
+}
+
+.navList{
+    padding-top: 1rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.navListItem{
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.navListItem:nth-child(4){
+    margin-bottom: 2rem;
+}
+
+.navListItem:nth-child(5){
+    margin-bottom: 2rem;
+}
+
+.navListLink{
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+   }
+
+
