@@ -5,23 +5,19 @@ import {stopSubmit} from 'redux-form';
 const SET_USER_DATA = 'SET_USER_DATA';
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS'
 
-export type InitialStateType = {
-    userId: number | null,
-    email: string | null,
-    login: string | null,
-    isAuth: boolean,
-    captchaUrl: string | null
-}
+export type InitialStateType = typeof initialState
 
-let initialState:InitialStateType = {
-    userId: null,
-    email: null,
-    login: null,
+let initialState = {
+    userId: null as null | number,
+    email: null as null | string,
+    login: null as null | string,
     isAuth: false,
-    captchaUrl: null // if null, then captcha is not required
+    captchaUrl: null as null | string  // if null, then captcha is not required
 }
 
-const authReducer = (state = initialState, action: any): InitialStateType => {
+
+
+const authReducer = (state = initialState, action: GetUserCaptchaData): InitialStateType => {
     switch (action.type) {
         case SET_USER_DATA:
         case GET_CAPTCHA_URL_SUCCESS:
@@ -59,6 +55,8 @@ export const setAuthUserData = ({userId, login, email, isAuth}:SetAuthUserDataPa
     type: SET_USER_DATA,
     payload: {userId, login, email, isAuth}
 });
+
+export type GetUserCaptchaData = GetCaptchaUrlSuccessActionType | SetAuthUserDataActionType
 
 export const getAuthUserdata = () => async (dispatch: any) => {
     const data = await authAPI.getMe()
