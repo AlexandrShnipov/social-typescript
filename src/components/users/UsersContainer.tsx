@@ -4,6 +4,9 @@ import {follow, requestUsers, unfollow,} from '../../redux/usersReducer';
 import Users from './Users';
 import Preloader from '../Common/Preloader/Preloader';
 import {compose} from 'redux';
+
+import {UserType} from '../../types/reduxType';
+import {AppStateType} from '../../redux/reduxStore';
 import {
   getCurrentPage,
   getFollowingInProgress,
@@ -12,8 +15,6 @@ import {
   getTotalItemsCount,
   getUsers
 } from '../../redux/usersSelectors';
-import {UserType} from '../../types/reduxType';
-import {AppStateType} from '../../redux/reduxStore';
 
 type MapStatePropsType = {
   currentPage :number
