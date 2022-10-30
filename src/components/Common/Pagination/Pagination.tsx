@@ -7,7 +7,7 @@ type PaginationPropsType = {
   pageSize:number
   totalItemsCount: number
   onPageChanged: (pageNumber:number) => void
-  portionSize: number
+  portionSize?: number
 }
 
 const Pagination
