@@ -11,7 +11,7 @@ type MessagesStateType = {
     message: string
 }
 
-export type InitialStateType = typeof initialState
+export type InitialDialogPageStateType = typeof initialState
 
 let initialState = {
     dialogs: [
@@ -62,7 +62,7 @@ let initialState = {
 
 const dialogPageReducer =
     (state =
-         initialState, action: AddMessageClickActionType): InitialStateType => {
+         initialState, action: AddMessageClickActionType): InitialDialogPageStateType => {
 
         switch (action.type) {
 
