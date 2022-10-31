@@ -152,6 +152,7 @@ export type SomeActionType =
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, any, SomeActionType>
 type DispatchType = Dispatch<SomeActionType>
+// type GetStateType = ()=> AppStateType
 
 export const requestUsers = (page: number, pageSize: number): ThunkType => {
     return async (dispatch, getState) => {

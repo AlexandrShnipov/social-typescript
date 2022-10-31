@@ -1,5 +1,9 @@
 import {authAPI, securityAPI} from '../api/api';
-import {stopSubmit} from 'redux-form';
+import {FormAction, stopSubmit} from 'redux-form';
+import {Dispatch} from 'redux';
+import {ThunkAction} from 'redux-thunk';
+import {AppStateType} from './reduxStore';
+import {SomeActionType} from './usersReducer';
 
 
 const SET_USER_DATA = 'SET_USER_DATA';
@@ -56,9 +60,11 @@ export const setAuthUserData = ({userId, login, email, isAuth}:SetAuthUserDataPa
     payload: {userId, login, email, isAuth}
 });
 
-export type GetUserCaptchaData = GetCaptchaUrlSuccessActionType | SetAuthUserDataActionType
+export type GetUserCaptchaData = GetCaptchaUrlSuccessActionType | SetAuthUserDataActionType | FormAction
 
-export const getAuthUserdata = () => async (dispatch: any) => {
+type ThunkType = ThunkAction<Promise<void>, AppStateType, any, GetUserCaptchaData>
+
+export const getAuthUserdata = ():ThunkType => async (dispatch) => {
     const data = await authAPI.getMe()
     //debugger
     if (data.resultCode === 0) {
@@ -67,7 +73,7 @@ export const getAuthUserdata = () => async (dispatch: any) => {
     }
 }
 
-export const login = (email:string, password:string, rememberMe:boolean, captcha:null | undefined) => async (dispatch: any) => {
+export const login = (email:string, password:string, rememberMe:boolean, captcha:null | undefined):ThunkType => async (dispatch) => {
     const data = await authAPI.login(email, password, rememberMe, captcha)
     //debugger
     if (data.resultCode === 0) {
@@ -82,14 +88,14 @@ export const login = (email:string, password:string, rememberMe:boolean, captcha
     console.log(data)
 }
 
-export const getCaptchaUrl = () => async (dispatch: any) => {
+export const getCaptchaUrl = ():ThunkType => async (dispatch) => {
     const data = await securityAPI.getCaptchaUrl()
     const captchaUrl = data.url
     dispatch(getCaptchaUrlSuccess(captchaUrl))
     console.log(data)
 }
 
-export const logout = () => async (dispatch: any) => {
+export const logout = ():ThunkType => async (dispatch) => {
     const data = await authAPI.logout()
     //debugger
     if (data.resultCode === 0) {
