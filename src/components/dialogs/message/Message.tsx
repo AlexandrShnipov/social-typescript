@@ -1,12 +1,8 @@
 import React from 'react';
 import s from './Message.module.css';
+import {MessagesStateType} from '../../../redux/dialogPageReducer';
 
-export type MessagePropsType = {
-    message : string
-    id: number
-}
-
-const Message = (props: MessagePropsType) => {
+const Message = (props: MessagesStateType) => {
     return (
         <p className={s.message}>{props.message}</p>
     )
