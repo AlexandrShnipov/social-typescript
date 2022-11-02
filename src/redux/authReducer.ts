@@ -9,7 +9,7 @@ import {SomeActionType} from './usersReducer';
 const SET_USER_DATA = 'SET_USER_DATA';
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS'
 
-export type InitialStateType = typeof initialState
+export type InitialAuthReducerStateType = typeof initialState
 
 let initialState = {
     userId: null as null | number,
@@ -21,7 +21,7 @@ let initialState = {
 
 
 
-const authReducer = (state = initialState, action: GetUserCaptchaData): InitialStateType => {
+const authReducer = (state = initialState, action: GetUserCaptchaData): InitialAuthReducerStateType => {
     switch (action.type) {
         case SET_USER_DATA:
         case GET_CAPTCHA_URL_SUCCESS:

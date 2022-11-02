@@ -1,14 +1,23 @@
-import React from 'react';
+import React, {FormEventHandler} from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './dialogItem/DialogItem';
 import Message from './message/Message';
 import {Navigate} from 'react-router-dom';
-import {Field, reduxForm} from 'redux-form';
+import {Field, FormSubmitHandler, reduxForm} from 'redux-form';
 import {Textarea} from '../Common/FormsControls/FormsControls';
 import {maxLengthCreator, required} from '../../utils/validators/validators';
 import ContainerPage from '../../common/containerPage/ContainerPage';
+import {AddMessageClickActionType, InitialDialogPageStateType} from '../../redux/dialogPageReducer';
+import {InitialAuthReducerStateType} from '../../redux/authReducer';
 
-const Dialogs = (props) => {
+type DialogPropsType = {
+    dialogsPage: InitialDialogPageStateType
+    isAuth: InitialAuthReducerStateType
+    addMessageClick: (values: string) => AddMessageClickActionType
+    newMessagesText: AddMessageClickActionType
+}
+
+const Dialogs = (props: DialogPropsType) => {
 
     let state = props.dialogsPage
 
@@ -24,7 +33,7 @@ const Dialogs = (props) => {
             id={message.id}
             message={message.message}/>);
 
-     const addNewMessage = (values) => {
+    const addNewMessage = (values: AddMessageClickActionType & any) => {
         //debugger
         props.addMessageClick(values.newMessagesText)
         values.newMessagesText = ''
@@ -55,7 +64,11 @@ const Dialogs = (props) => {
     )
 }
 
-const AddMessageForm = (props) => {
+type AddMessageFormType = {
+    handleSubmit : FormEventHandler<HTMLFormElement>
+}
+
+const AddMessageForm = (props: AddMessageFormType) => {
 
     const maxLength100 = maxLengthCreator(100)
 

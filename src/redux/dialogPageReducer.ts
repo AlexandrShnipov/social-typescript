@@ -1,12 +1,12 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 
-type DialogStateType = {
+export type DialogStateType = {
     id: number
     name: string
     photo: string
 }
 
-type MessagesStateType = {
+export type MessagesStateType = {
     id: number
     message: string
 }
