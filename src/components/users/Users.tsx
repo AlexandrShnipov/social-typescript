@@ -4,7 +4,7 @@ import Pagination from '../Common/Pagination/Pagination';
 import User from './User';
 import {UserType} from '../../types/reduxType';
 
-type UsersPropsType = {
+export type UsersPropsType = {
     currentPage: number
     pageSize: number
     totalItemsCount: number
