@@ -12,10 +12,13 @@ type StateType = {
 
 class ProfileStatus extends React.Component<ProfileStatusPropsType, StateType> {
 
-  state = {
-    editMode: false,
-    status: this.props.status
-  }
+ constructor(props:ProfileStatusPropsType) {
+     super(props);
+     this.state = {
+         editMode: false,
+         status: this.props.status
+     }
+ }
 
   activateEditMode = () => {
     this.setState({
