@@ -7,7 +7,7 @@ import {UserType} from '../../types/reduxType';
 export type UsersPropsType = {
     currentPage: number
     pageSize: number
-    totalItemsCount: number
+    totalUsersCount: number
     users: Array<UserType>
     onPageChanged: (pageNumber: number) => void
     followingInProgress: Array<number>
@@ -17,13 +17,13 @@ export type UsersPropsType = {
 
 const Users = (props: UsersPropsType) => {
 
-    let {currentPage, pageSize, totalItemsCount, users, onPageChanged, followingInProgress, follow, unfollow} = props;
+    let {currentPage, pageSize, totalUsersCount, users, onPageChanged, followingInProgress, follow, unfollow} = props;
 
     return (
         <ContainerPage title={'Users'}>
             <Pagination currentPage={currentPage}
                         pageSize={pageSize}
-                        totalItemsCount={totalItemsCount}
+                        totalUsersCount={totalUsersCount}
                         onPageChanged={onPageChanged}/>
             {users.map(user => <User user={user}
                                      key={user.id}

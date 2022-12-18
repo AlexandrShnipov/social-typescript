@@ -1,21 +1,20 @@
-import {getAuthUserdata, SetAuthUserDataActionType} from './authReducer';
-import {Action, Dispatch} from 'redux';
-import {ThunkAction} from 'redux-thunk';
-import {ThunkDispatch} from 'redux-thunk/src/types';
-import {AppStateType} from './reduxStore';
-import {SomeActionType} from './usersReducer';
+import {getAuthUserdata} from "./authReducer";
+import {ThunkAction} from "redux-thunk";
+import {AppStateType} from "./reduxStore";
+
+export type InitialStateType = typeof initialState
+
+export type InitializedSuccessActionType = {
+    type: typeof INITIALIZED_SUCCESS // 'INITIALIZED_SUCCESS'
+}
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 
-export type InitialStateType = {
-  initialized: boolean
-}
-
 const initialState= {
-  initialized: false,
+    initialized: false,
 }
 
-const appReducer = (state = initialState, action: InitializedSuccessActionType): InitialStateType => {
+const appReducer = (state= initialState, action: InitializedSuccessActionType): InitialStateType => {
   switch (action.type) {
     case INITIALIZED_SUCCESS:
       return {
@@ -25,10 +24,6 @@ const appReducer = (state = initialState, action: InitializedSuccessActionType):
     default:
       return state;
   }
-}
-
-export type InitializedSuccessActionType = {
-  type: typeof INITIALIZED_SUCCESS
 }
 
 export const initializedSuccess = (): InitializedSuccessActionType => ({

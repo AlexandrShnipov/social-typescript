@@ -1,11 +1,7 @@
-import {authAPI, securityAPI} from '../api/api';
-import {FormAction, stopSubmit} from 'redux-form';
-import {Dispatch} from 'redux';
-import {ThunkAction} from 'redux-thunk';
-import {AppStateType} from './reduxStore';
-import {SomeActionType} from './usersReducer';
-
-
+import {authAPI, securityAPI} from "../api/api";
+import {FormAction, stopSubmit} from "redux-form";
+import {ThunkAction} from "redux-thunk";
+import {AppStateType} from "./reduxStore";
 const SET_USER_DATA = 'SET_USER_DATA';
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS'
 
@@ -19,9 +15,7 @@ let initialState = {
     captchaUrl: null as null | string  // if null, then captcha is not required
 }
 
-
-
-const authReducer = (state = initialState, action: GetUserCaptchaData): InitialAuthReducerStateType => {
+const authReducer = (state:InitialAuthReducerStateType = initialState, action: GetUserCaptchaData): InitialAuthReducerStateType => {
     switch (action.type) {
         case SET_USER_DATA:
         case GET_CAPTCHA_URL_SUCCESS:
@@ -34,16 +28,7 @@ const authReducer = (state = initialState, action: GetUserCaptchaData): InitialA
     }
 }
 
-export type GetCaptchaUrlSuccessActionType = {
-    type: typeof GET_CAPTCHA_URL_SUCCESS
-    payload: { captchaUrl: string }
-}
-export const getCaptchaUrlSuccess = (captchaUrl: string): GetCaptchaUrlSuccessActionType => ({
-    type: GET_CAPTCHA_URL_SUCCESS,
-    payload: {captchaUrl}
-});
-
-export type SetAuthUserDataPayloadType = {
+export type SetAuthUserDataActionPayloadType = {
     userId: number | null
     login: string | null
     email: string | null
@@ -52,12 +37,22 @@ export type SetAuthUserDataPayloadType = {
 
 export type SetAuthUserDataActionType = {
     type: typeof SET_USER_DATA
-    payload: SetAuthUserDataPayloadType
+    payload: SetAuthUserDataActionPayloadType
 }
 
-export const setAuthUserData = ({userId, login, email, isAuth}:SetAuthUserDataPayloadType): SetAuthUserDataActionType => ({
+export const setAuthUserData = ({userId, login, email, isAuth}:SetAuthUserDataActionPayloadType): SetAuthUserDataActionType => ({
     type: SET_USER_DATA,
     payload: {userId, login, email, isAuth}
+});
+
+
+export type GetCaptchaUrlSuccessActionType = {
+    type: typeof GET_CAPTCHA_URL_SUCCESS
+    payload: { captchaUrl: string }
+}
+export const getCaptchaUrlSuccess = (captchaUrl: string): GetCaptchaUrlSuccessActionType => ({
+    type: GET_CAPTCHA_URL_SUCCESS,
+    payload: {captchaUrl}
 });
 
 export type GetUserCaptchaData = GetCaptchaUrlSuccessActionType | SetAuthUserDataActionType | FormAction

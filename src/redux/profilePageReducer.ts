@@ -1,11 +1,8 @@
-import {profileAPI, usersAPI} from '../api/api';
-import {FormAction, stopSubmit} from 'redux-form';
-import {isNumberObject} from 'util/types';
-import {PhotosType, PostsStateType, ProfileType} from '../types/reduxType';
-import {ThunkAction} from 'redux-thunk';
-import {AppStateType} from './reduxStore';
-import {SomeActionType} from './usersReducer';
-
+import {profileAPI, usersAPI} from "../api/api";
+import {FormAction, stopSubmit} from "redux-form";
+import {PhotosType, PostStateType, ProfileType} from "../types/reduxType";
+import {ThunkAction} from "redux-thunk";
+import {AppStateType} from "./reduxStore";
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
@@ -18,7 +15,7 @@ let initialState = {
     posts: [
         {id: 1, message: 'Hi', likesCount: 11,},
         {id: 2, message: `It's my first post`, likesCount: 25,},
-    ] as Array<PostsStateType>,
+    ] as Array<PostStateType>,
     profile: null as null | ProfileType,
     status: '',
     addPostText: ''

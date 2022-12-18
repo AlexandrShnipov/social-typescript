@@ -23,7 +23,7 @@ export type ProfileType = {
     photos: PhotosType
 }
 
-export type PostsStateType = {
+export type PostStateType = {
     id: number
     message: string
     likesCount: number

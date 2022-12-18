@@ -1,5 +1,5 @@
 import React from 'react';
-import {addMessageClick, InitialDialogPageStateType} from '../../redux/dialogPageReducer';
+import {addMessageCreator, InitialDialogPageStateType} from "../../redux/dialogPageReducer";
 import Dialogs from './Dialogs';
 import {connect} from 'react-redux';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
@@ -23,7 +23,7 @@ const mapStateToProps = (state:AppStateType) => {
 }
 
 export default compose<React.Component<DialogsContainerPropsType>> (
-  connect<MapStatePropsType, MapDispatchPropsType, OwnProps, AppStateType>(mapStateToProps, {addMessageClick}),
+  connect<MapStatePropsType, MapDispatchPropsType, OwnProps, AppStateType>(mapStateToProps, {addMessageCreator}),
   withAuthRedirect
 ) (Dialogs);
 

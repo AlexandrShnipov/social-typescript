@@ -1,4 +1,4 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
+const ADD_MESSAGE = 'ADD-MESSAGE'
 
 export type DialogStateType = {
     id: number
@@ -62,7 +62,7 @@ let initialState = {
 
 const dialogPageReducer =
     (state =
-         initialState, action: AddMessageClickActionType): InitialDialogPageStateType => {
+         initialState, action: AddMessageCreatorActionType): InitialDialogPageStateType => {
 
         switch (action.type) {
 
@@ -81,12 +81,12 @@ const dialogPageReducer =
 
 export default dialogPageReducer;
 
-export type AddMessageClickActionType = {
+export type AddMessageCreatorActionType = {
     type: typeof ADD_MESSAGE
     newMessagesText: string
 }
 
-export const addMessageClick = (newMessagesText: string): AddMessageClickActionType => ({
+export const addMessageCreator = (newMessagesText: string): AddMessageCreatorActionType => ({
     type: ADD_MESSAGE,
     newMessagesText
 })
