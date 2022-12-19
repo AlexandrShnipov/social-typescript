@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Preloader.module.css';
 
-const Preloader = (props) => {
+const Preloader = () => {
     return (
         <div className={s.isLoadingContainer}>
             <div></div>

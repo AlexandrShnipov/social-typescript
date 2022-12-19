@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {MouseEventHandler} from "react";
 import s from './Header.module.css';
 import {NavLink} from 'react-router-dom';
 import logo from '../../assets/images/logo.png'
 
-const Header = (props) => {
+export type HeaderPropsType = {
+    isAuth: boolean
+    login: string | null
+    logout?: MouseEventHandler<HTMLButtonElement>
+}
+const Header = (props:HeaderPropsType) => {
   return (
     <header className={s.header}>
       <div className={s.headerWrap}>

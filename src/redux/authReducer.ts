@@ -57,7 +57,7 @@ export const getCaptchaUrlSuccess = (captchaUrl: string): GetCaptchaUrlSuccessAc
 
 export type AuthReducerActionTypes = GetCaptchaUrlSuccessActionType | SetAuthUserDataActionType | FormAction
 
-type ThunkType = ThunkAction<Promise<void>, AppStateType, any, AuthReducerActionTypes>
+export type ThunkType = ThunkAction<Promise<void>, AppStateType, any, AuthReducerActionTypes>
 
 export const getAuthUserdata = ():ThunkType => async (dispatch) => {
     const data = await authAPI.getMe()
