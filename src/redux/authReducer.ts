@@ -15,7 +15,7 @@ let initialState = {
     captchaUrl: null as null | string  // if null, then captcha is not required
 }
 
-const authReducer = (state:InitialAuthReducerStateType = initialState, action: GetUserCaptchaData): InitialAuthReducerStateType => {
+const authReducer = (state:InitialAuthReducerStateType = initialState, action: AuthReducerActionTypes): InitialAuthReducerStateType => {
     switch (action.type) {
         case SET_USER_DATA:
         case GET_CAPTCHA_URL_SUCCESS:
@@ -55,9 +55,9 @@ export const getCaptchaUrlSuccess = (captchaUrl: string): GetCaptchaUrlSuccessAc
     payload: {captchaUrl}
 });
 
-export type GetUserCaptchaData = GetCaptchaUrlSuccessActionType | SetAuthUserDataActionType | FormAction
+export type AuthReducerActionTypes = GetCaptchaUrlSuccessActionType | SetAuthUserDataActionType | FormAction
 
-type ThunkType = ThunkAction<Promise<void>, AppStateType, any, GetUserCaptchaData>
+type ThunkType = ThunkAction<Promise<void>, AppStateType, any, AuthReducerActionTypes>
 
 export const getAuthUserdata = ():ThunkType => async (dispatch) => {
     const data = await authAPI.getMe()
@@ -68,7 +68,8 @@ export const getAuthUserdata = ():ThunkType => async (dispatch) => {
     }
 }
 
-export const login = (email:string, password:string, rememberMe:boolean, captcha:null | undefined):ThunkType => async (dispatch) => {
+export const login = (email:string, password:string, rememberMe:boolean, captcha:null | undefined):ThunkType =>
+    async (dispatch) => {
     const data = await authAPI.login(email, password, rememberMe, captcha)
     //debugger
     if (data.resultCode === 0) {

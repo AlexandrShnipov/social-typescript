@@ -21,7 +21,7 @@ let initialState = {
     addPostText: ''
 }
 
-const profilePageReducer = (state = initialState, action: SameActionType): InitialStateType => {
+const profilePageReducer = (state = initialState, action: ProfilePageReducerActionsType): InitialStateType => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
@@ -114,7 +114,7 @@ export const savePhotoSuccess = (photos: PhotosType): SavePhotoSuccessActionType
     photos
 });
 
-export type SameActionType =
+export type ProfilePageReducerActionsType =
     AddPostActionType
     | SetStatusActionType
     | SetUserActionProfile
@@ -123,7 +123,7 @@ export type SameActionType =
 
 
 
-type ThunkType = ThunkAction<Promise<void>, AppStateType, any, SameActionType | FormAction>
+type ThunkType = ThunkAction<Promise<void>, AppStateType, any, ProfilePageReducerActionsType | FormAction>
 
 export const getUserProfile = (userId: number | null):ThunkType => async (dispatch) => {
     const data = await usersAPI.getProfile(userId)
