@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {logout} from "../../redux/authReducer";
 import {AppStateType} from "../../redux/reduxStore";
 
-type HeaderContainerPropsType = MapStatePropsType
+type HeaderContainerPropsType = MapStatePropsType & MapDispatchPropsType & OwnProps
 
 class HeaderContainer extends React.Component<HeaderContainerPropsType> {
 
