@@ -2,8 +2,13 @@ import React from 'react';
 import s  from './Friends.module.css';
 import FriendsItem from './friendsItem/FriendsItem';
 import {NavLink} from 'react-router-dom';
+import {FriendsStateType} from "../../../redux/navBarReducer";
 
-const Friends = (props) => {
+type FriendsPropsType = {
+    friends: Array<FriendsStateType>
+}
+
+const Friends = (props: FriendsPropsType) => {
 
     let friendsElements = props.friends.map(friend => <FriendsItem key={friend.id} {...friend}/>);
 

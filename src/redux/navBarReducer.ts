@@ -1,16 +1,16 @@
-type FriendsStateType = {
+export type FriendsStateType = {
     id: number
     name: string
     photo: string
 }
 
-type ItemStateType = {
+export type ItemStateType = {
     id: number
     to: string
     linkText: string
 }
 
-export type InitialStateType = typeof initialState
+export type NavBarInitialStateType = typeof initialState
 
 let initialState = {
     friends: [
@@ -28,7 +28,7 @@ let initialState = {
     ] as Array<ItemStateType>
 };
 
-const navBarReducer = (state = initialState, action: any): InitialStateType => {
+const navBarReducer = (state = initialState, action: any): NavBarInitialStateType => {
   return state;
 }
 

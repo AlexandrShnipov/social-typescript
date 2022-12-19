@@ -2,7 +2,12 @@ import React from 'react';
 import s from './NavBarItem.module.css';
 import {NavLink} from 'react-router-dom';
 
-const NavBarItem = (props) => {
+type NavbarItemPropsType = {
+    to: string
+    linkText: string
+}
+
+const NavBarItem = (props: NavbarItemPropsType) => {
     return (
         <li className={s.navListItem}>
             <NavLink className={({isActive}) => isActive

@@ -1,7 +1,12 @@
 import {NavLink} from 'react-router-dom';
 import s from './FriendsItem.module.css';
 
-const FriendsItem = (props) => {
+type FriendsItemPropsType = {
+    photo: string
+    name: string
+}
+
+const FriendsItem = (props: FriendsItemPropsType) => {
     return (
         <li className={s.navListItemFriend}>
             <NavLink className={s.navListItemFriendLink} to={''}>
