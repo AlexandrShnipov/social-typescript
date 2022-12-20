@@ -1,4 +1,4 @@
-import {usersAPI} from "../api/api";
+import {ResultCodeEnum, usersAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/objectHelpers";
 import {UserType} from "../types/reduxType";
 import {AppStateType} from "./reduxStore";
@@ -171,7 +171,7 @@ const _followUnfollowFlow = async (dispatch: DispatchType,
     dispatch(toggleFollowingProgress(true, userID))
     const data = await apiMethod(userID)
     //debugger
-    if (data.resultCode === 0) {
+    if (data.resultCode === ResultCodeEnum.Success) {
         dispatch(actionCreator(userID));
     }
     dispatch(toggleFollowingProgress(false, userID))

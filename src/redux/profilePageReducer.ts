@@ -1,4 +1,4 @@
-import {profileAPI, usersAPI} from "../api/api";
+import {profileAPI, ResultCodeEnum, usersAPI} from "../api/api";
 import {FormAction, stopSubmit} from "redux-form";
 import {PhotosType, PostStateType, ProfileType} from "../types/reduxType";
 import {ThunkAction} from "redux-thunk";
@@ -138,7 +138,7 @@ export const getStatus = (userId: number):ThunkType => async (dispatch) => {
 export const updateStatus = (status: string):ThunkType => async (dispatch) => {
     try {
         const data = await profileAPI.updateStatus(status)
-        if (data.resultCode === 0) {
+        if (data.resultCode === ResultCodeEnum.Success) {
             dispatch(setStatus(status));
         }
     } catch (error: any) {
@@ -148,7 +148,7 @@ export const updateStatus = (status: string):ThunkType => async (dispatch) => {
 
 export const savePhoto = (file: string):ThunkType => async (dispatch) => {
     const data = await profileAPI.savePhoto(file)
-    if (data.resultCode === 0) {
+    if (data.resultCode === ResultCodeEnum.Success) {
         dispatch(savePhotoSuccess(data.data.photos));
     }
 }
@@ -156,7 +156,7 @@ export const savePhoto = (file: string):ThunkType => async (dispatch) => {
 export const saveProfile = (profile: ProfileType):ThunkType => async (dispatch, getState) => {
     const userId = getState().auth.userId
     const data = await profileAPI.saveProfile(profile)
-    if (data.resultCode === 0) {
+    if (data.resultCode === ResultCodeEnum.Success) {
         dispatch(getUserProfile(userId));
     } else {
         const message = data.messages.length > 0 ? data.messages[0] : 'Some error';
