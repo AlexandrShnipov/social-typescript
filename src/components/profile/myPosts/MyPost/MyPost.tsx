@@ -1,7 +1,12 @@
 
 import s from './MyPost.module.css';
 
-const MyPost = (props) => {
+type MyPostPropsType = {
+    message: string
+    likesCount: number
+}
+
+const MyPost = (props: MyPostPropsType) => {
     return (
         <article className={s.post}>
             <img className={s.postImg}

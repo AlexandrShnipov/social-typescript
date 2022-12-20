@@ -4,11 +4,18 @@ import MyPost from './MyPost/MyPost';
 import {Field, reduxForm} from 'redux-form';
 import {maxLengthCreator, required} from '../../../utils/validators/validators';
 import {Textarea} from '../../Common/FormsControls/FormsControls';
+import {PostStateType} from "../../../types/reduxType";
 
-const MyPosts = (props) => {
+type MyPostsPropsType = {
+    posts: Array<PostStateType>
+    addPostText: string
+    addPost: (addPostText: string)=>void
+}
+
+const MyPosts = (props: MyPostsPropsType) => {
    let postsElements = props.posts.map(post => <MyPost key={post.id} {...post}/>)
 
-  const onAddPost = (value) => {
+  const onAddPost = (value:any) => {
     //debugger
     props.addPost(value.addPostText);
     value.addPostText = ''
@@ -27,7 +34,11 @@ const MyPosts = (props) => {
 
 const maxLength10 = maxLengthCreator(10)
 
-const AddNewPostForm = (props) => {
+type AddNewPostFormType = {
+    handleSubmit: any
+}
+
+const AddNewPostForm = (props: AddNewPostFormType) => {
   return (
     <form className={s.contentPostsPostNew} onSubmit={props.handleSubmit}>
       <Field
