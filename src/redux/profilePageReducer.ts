@@ -156,7 +156,7 @@ export const savePhoto = (file: string):ThunkType => async (dispatch) => {
 export const saveProfile = (profile: ProfileType):ThunkType => async (dispatch, getState) => {
     const userId = getState().auth.userId
     const data = await profileAPI.saveProfile(profile)
-    if (data.resultCode === ResultCodeEnum.Success) {
+    if (data.resultCode === 0) {
         dispatch(getUserProfile(userId));
     } else {
         const message = data.messages.length > 0 ? data.messages[0] : 'Some error';

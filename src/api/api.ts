@@ -11,13 +11,13 @@ const instance = axios.create({
 
 });
 
-type GetUsersResponseData = {
+export type GetUsersResponseData = {
     items: Array<UserType>
     totalCount: number
     error: null | string
 }
 
-type FollowingResponseData = {
+export type FollowingResponseData = {
     resultCode: ResultCodeEnum
     messages: string
     data: {}
@@ -108,6 +108,7 @@ export const profileAPI = {
     }
 }
 
+
 export enum ResultCodeEnum {
     Success = 0,
     Error = 1,
@@ -131,7 +132,7 @@ export type LoginResponseData = {
     data: {
         UserId: number
     }
-    resultCode: ResultCodeForCaptchaEnum
+    resultCode: ResultCodeEnum | ResultCodeForCaptchaEnum
     messages: Array<string>
 }
 

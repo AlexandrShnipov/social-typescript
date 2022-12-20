@@ -74,7 +74,7 @@ export const login = (email:string, password:string, rememberMe:boolean, captcha
     async (dispatch) => {
     const data = await authAPI.login(email, password, rememberMe, captcha)
     //debugger
-    if (data.resultCode === ResultCodeForCaptchaEnum.CaptchaIsRequired) {
+    if (data.resultCode === ResultCodeEnum.Success) {
         dispatch(getAuthUserdata());
     } else {
         if (data.resultCode === ResultCodeForCaptchaEnum.CaptchaIsRequired) {
@@ -98,7 +98,7 @@ export const logout = ():ThunkType =>
     async (dispatch) => {
     const data = await authAPI.logout()
     //debugger
-    if (data.resultCode === ResultCodeEnum.Success) {
+    if (data.resultCode === 0) {
         dispatch(setAuthUserData({userId:null, login:null, email:null, isAuth:false}));
     }
 }
